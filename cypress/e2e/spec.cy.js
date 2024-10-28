@@ -1,9 +1,11 @@
+import { userData } from "../configure/userConfigure.cy";
+
 describe('template spec', () => {
   it('passes', () => {
     cy.visit('https://nidhi.softbd.xyz/');
     cy.get('.css-13420go > [href="/signin"] > .MuiTypography-root').click();
-    cy.get('input[name="phone"]').type('01711000002');
-    cy.get('input[name="password"]').type('Password');
+    cy.get('input[name="phone"]').type(userData.phone);
+    cy.get('input[name="password"]').type(userData.password);
     cy.get('button[type="submit"]').click();
 
     cy.get('img[src="/assets/images/dashboard/card-icon/property-logo.svg"]').click();
@@ -17,6 +19,5 @@ describe('template spec', () => {
     cy.contains(optionToSelect).click();
 
     //Select location
-    
   })
 })
